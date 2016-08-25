@@ -7,8 +7,8 @@ module.exports = function(grunt) {
         separator: ';',
       },
       dist: {
-        src: ['server.js', 'public/client/app.js'],
-        dest: 'dist/built.js',
+        src: ['public/*'],
+        dest: 'public/dist/built.js',
       },
     },
 
