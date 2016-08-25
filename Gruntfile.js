@@ -32,8 +32,26 @@ module.exports = function(grunt) {
     cssmin: {
     },
 
+    gitadd: {
+      task: {
+        options: {
+          all: true,
+        },
+      }
+    },
+
+    gitcommit: {
+      target: {
+        options: {
+          message: 'auto commit',
+         // Target-specific options go here.
+          allowEmpty: true,
+        },
+      }
+    },
+
     gitpush: {
-      asdf: {
+      target: {
         options: {
           remote: 'live',
           branch: 'master', 
@@ -101,7 +119,6 @@ module.exports = function(grunt) {
     // add your deploy tasks here
   ]);
 
-  grunt.registerTask('push', ['gitpush']);
-
+  grunt.registerTask('push', ['gitadd', 'gitcommit', 'gitpush']);
 
 };
