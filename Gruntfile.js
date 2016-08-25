@@ -32,6 +32,15 @@ module.exports = function(grunt) {
     cssmin: {
     },
 
+    gitpush: {
+      target: {
+        options: {
+          remote: 'live',
+          branch: 'master', 
+        }
+      }
+    },
+
     watch: {
       scripts: {
         files: [
@@ -63,6 +72,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-mocha-test');
   grunt.loadNpmTasks('grunt-shell');
   grunt.loadNpmTasks('grunt-nodemon');
+  grunt.loadNpmTasks('grunt-git');
 
   grunt.registerTask('server-dev', function (target) {
     grunt.task.run([ 'nodemon', 'watch' ]);
@@ -90,6 +100,8 @@ module.exports = function(grunt) {
   grunt.registerTask('deploy', [
     // add your deploy tasks here
   ]);
+
+  grunt.registerTask('push', ['gitpush']);
 
 
 };
