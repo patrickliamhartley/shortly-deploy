@@ -3,6 +3,13 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     concat: {
+      options: {
+        separator: ';',
+      },
+      dist: {
+        src: ['server.js', 'public/client/app.js'],
+        dest: 'dist/built.js',
+      },
     },
 
     mochaTest: {
@@ -91,6 +98,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-shell');
   grunt.loadNpmTasks('grunt-nodemon');
   grunt.loadNpmTasks('grunt-git');
+  grunt.loadNpmTasks('grunt-contrib-concat');
 
   grunt.registerTask('server-dev', function (target) {
     grunt.task.run([ 'nodemon', 'watch' ]);
@@ -120,5 +128,7 @@ module.exports = function(grunt) {
   ]);
 
   grunt.registerTask('push', ['gitadd', 'gitcommit', 'gitpush']);
+
+  grunt.registerTask('cat', ['concat']);
 
 };
