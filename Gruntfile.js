@@ -33,7 +33,7 @@ module.exports = function(grunt) {
     },
 
     gitpush: {
-      target: {
+      asdf: {
         options: {
           remote: 'live',
           branch: 'master', 
