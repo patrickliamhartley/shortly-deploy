@@ -10,7 +10,7 @@ var usersSchema = mongoose.Schema({
 
 var User = mongoose.model('User', usersSchema);
   
-userSchema.pre('save', function(next) {
+usersSchema.pre('save', function(next) {
   var cipher = Promise.promisify(bcrypt.hash);
   return cipher(this.password, null, null).bind(this)
     .then(function(hash) {
