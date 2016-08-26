@@ -1,6 +1,6 @@
 
 var mongoose = require('mongoose');
-var db = mongoose.connect('mongodb://localhost/data');
+var db = mongoose.connect('mongodb://198.199.97.92/data');
 
 db.on('error', console.error.bind(console, 'error: '));
 db.once('open', function() {
